@@ -5,14 +5,12 @@ import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.trello.client.CreatedTrelloCard;
 import com.crud.tasks.trello.client.TrelloClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/trello")
 public class TrelloController {
@@ -22,17 +20,6 @@ public class TrelloController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
-
-       /* List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-
-     return   trelloBoards.stream()
-                .filter(s->s.getId()!=null)
-                .filter(s->s.getName()!=null)
-                .filter(s->s.getName().contains("Kodilla"))
-             .collect(Collectors.toList());
-               // .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()))
-
-               //  });*/
 
         List <TrelloBoardDto>trelloBoards = trelloClient.getTrelloBoards();
 
