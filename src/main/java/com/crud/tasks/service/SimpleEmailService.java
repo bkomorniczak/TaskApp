@@ -1,5 +1,6 @@
 package com.crud.tasks.service;
 
+import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SimpleEmailService {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleMailMessage.class);
     @Autowired
     private JavaMailSender javaMailSender;
+
 
     public void send(final Mail mail) {
         LOGGER.info("Starting email preparation...");
